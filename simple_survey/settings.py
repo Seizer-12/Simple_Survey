@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = "https://your-app.vercel.app"  # ← Change this!
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,14 @@ SECRET_KEY = 'django-insecure-cukfkd+mx_f_-f@^nltaww=#_(v$7obh1_e5^w$h0myz=$3bva
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# Required for Vercel
+ALLOWED_HOSTS = [
+    '.vercel.app', 
+    '.now.sh',
+    'localhost',
+    '127.0.0.1'
+]
+
 
 
 # Application definition
@@ -78,7 +85,7 @@ WSGI_APPLICATION = 'simple_survey.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '/tmp/db.sqlite3',  # Vercel's writable directory
     }
 }
 

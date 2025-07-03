@@ -2,7 +2,7 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "your_project/wsgi.py",
+			"src": "simple_survey/wsgi.py",
 			"use": "@vercel/python",
 			"config": {
 				"maxLambdaSize": "15mb",
@@ -27,7 +27,7 @@
 		},
 		{
 			"src": "/(.*)",
-			"dest": "your_project/wsgi.py"
+			"dest": "simple_survey/wsgi.py"
 		}
 	]
 }
