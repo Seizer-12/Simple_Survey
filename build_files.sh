@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Install Python dependencies
-pip install -r requirements.txt
+# Explicitly use Python 3.x and pip3
+echo "Installing dependencies..."
+python3 -m pip install --user -r requirements.txt
 
-# Collect static files
-python manage.py collectstatic --noinput
+echo "Collecting static files..."
+python3 manage.py collectstatic --noinput
+
+echo "Build completed successfully!"
