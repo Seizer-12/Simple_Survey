@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$imple Survey Income - Earn Dollars From Your Phone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --warning: #fdcb6e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--light);
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .benefit-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .testimonial {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .pricing-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.3);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.5rem;
+        }
+        
+        .bonus-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        
+        .bonus-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .bonus-item::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        /* Animations */
+        .animate-pop {
+            animation: popIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            80% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .pricing-box {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container animate__animated animate__fadeIn">
+            <div class="logo animate__animated animate__bounceIn">🌍 $imple Survey Income</div>
+            <h1 class="tagline animate__animated animate__fadeInUp">Turn Your Free Time into Dollars by Answering Simple Questions Online</h1>
+            <a href="#pricing" class="cta-button animate__animated animate__pulse animate__infinite">Start Earning Today</a>
+        </div>
+    </header>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">💸 Learn How to Make Money in Dollars Just by Sharing Your Opinions</h2>
+            <p class="animate__animated animate__fadeIn animate__delay-1s" style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                Have you ever wished you could earn money in dollars with your phone WITHOUT selling anything, referring people, or needing special skills?
+                <br><br>
+                <strong>GOOD NEWS: you can.</strong>
+                <br><br>
+                With online surveys, everyday people like you are getting paid in real DOLLARS just for sharing their honest opinions.
+                And with our $imple Survey Income, we'll show you exactly how to do it the right way.
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-pop">
+                    <div class="benefit-icon">✅</div>
+                    <h3 class="benefit-title">What You'll Learn</h3>
+                    <ul style="text-align: left; list-style-position: inside;">
+                        <li>What online surveys really are — and how they work</li>
+                        <li>Trusted platforms that pay you in USD</li>
+                        <li>How to register, get accepted, and start earning</li>
+                        <li>Simple tools you need (just your phone & internet)</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card animate-pop delay-1">
+                    <div class="benefit-icon">💡</div>
+                    <h3 class="benefit-title">Advanced Techniques</h3>
+                    <ul style="text-align: left; list-style-position: inside;">
+                        <li>How to open UK bank account</li>
+                        <li>How to open ACTIVE PayPal account</li>
+                        <li>Pro tips to avoid disqualification</li>
+                        <li>How to increase earnings</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card animate-pop delay-2">
+                    <div class="benefit-icon">🔑</div>
+                    <h3 class="benefit-title">Special Access</h3>
+                    <ul style="text-align: left; list-style-position: inside;">
+                        <li>How to get UK numbers</li>
+                        <li>How to get VPN/PROXY</li>
+                        <li>List of top 10 paying platforms</li>
+                        <li>Direct signup links without stress</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background-color: #f0f2f5;">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">💥 Why This Matters</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p class="animate__animated animate__fadeInUp" style="margin-bottom: 30px;">
+                    No capital needed to start • No referrals required • No tech or marketing skills<br>
+                    Flexible: do it anywhere, anytime • Earn in dollars, even while in Nigeria 🇳🇬
+                </p>
+                <p class="animate__animated animate__fadeInUp delay-1s">
+                    Whether you're a student, stay-at-home parent, or hustler looking for extra income, this is your chance to learn a realistic, stress-free side hustle.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">⚠️ What You Should Know</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p class="animate__animated animate__fadeInUp" style="margin-bottom: 20px;">
+                    🚫 You won't become a millionaire overnight<br>
+                    ✅ But you can earn $10 to $20 daily and that adds up<br>
+                    💼 All you need is consistency, patience, and the right guide
+                </p>
+                <p class="animate__animated animate__fadeInUp delay-1s" style="font-size: 1.2rem; font-weight: 600; color: var(--primary);">
+                    That's where $imple Survey Income comes in.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background-color: #f0f2f5;">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">🎁 BONUS</h2>
+            <p style="text-align: center; margin-bottom: 40px;" class="animate__animated animate__fadeInUp">
+                Join now and get:
+            </p>
+            
+            <div class="bonus-list animate__animated animate__fadeIn">
+                <div class="bonus-item">List of top 10 paying platforms</div>
+                <div class="bonus-item">Direct signup links without stress</div>
+                <div class="bonus-item">Free access to our support group to help you grow faster</div>
+                <div class="bonus-item">Money and resource giveaways</div>
+                <div class="bonus-item">Free data and many more</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">🔓 Ready to Start?</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;" class="animate__animated animate__fadeInUp">
+                It's time to turn your free time into real money.<br>
+                Learn the smart, simple way to earn dollars from your phone.
+            </p>
+            
+            <div class="pricing-box animate__animated animate__zoomIn">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">One-Time Payment</h3>
+                <div class="price">₦10,000</div>
+                <div class="original-price">Instead of ₦30,000</div>
+                <p style="margin-bottom: 30px;">Offer closing soon!</p>
+                <a href="#" class="cta-button" style="background-color: white; color: var(--primary);">👉 PAY NOW!</a>
+            </div>
+            
+            <p class="disclaimer animate__animated animate__fadeIn">
+                SEE MY EARNINGS AND THE TESTIMONY OF MY STUDENT AS WELL<br>
+                Pay a one time registration fee of #10,000 instead of 30k now! Closing soon
+            </p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <div class="testimonial animate__animated animate__fadeInUp">
+                <p class="testimonial-text">
+                    "I was skeptical at first, but after joining $imple Survey Income, I started making $15-20 daily just by completing surveys in my free time. The step-by-step guide made everything so easy!"
+                </p>
+                <div class="testimonial-author">- Tunde, Lagos</div>
+            </div>
+            
+            <div style="text-align: center;" class="animate__animated animate__fadeIn">
+                <img src="https://via.placeholder.com/300" alt="Earnings proof" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" class="floating">
+                <p>Actual earnings from our students</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 $imple Survey Income. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-pop, .delay-1, .delay-2, .delay-3');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
