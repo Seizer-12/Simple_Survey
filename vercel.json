@@ -10,12 +10,20 @@
 				"installCommand": "python3 -m pip install --user -r requirements.txt",
 				"buildCommand": "python3 manage.py collectstatic --noinput"
 			}
+		},
+		{
+			"src": "staticfiles/",
+			"use": "@vercel/static"
 		}
 	],
 	"routes": [
 		{
 			"src": "/static/(.*)",
 			"dest": "/static/$1"
+		},
+		{
+			"src": "/media/(.*)",
+			"dest": "/media/$1"
 		},
 		{
 			"src": "/(.*)",
